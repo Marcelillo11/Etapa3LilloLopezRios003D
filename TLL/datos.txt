@@ -1,0 +1,6 @@
+usuario = admin
+contraseña = DUOC2020
+usuario = @Marcelo
+contraseña = DUOC2020
+ 
+//Panel de Administracion de Django Y Usuarios Del Sistema//
