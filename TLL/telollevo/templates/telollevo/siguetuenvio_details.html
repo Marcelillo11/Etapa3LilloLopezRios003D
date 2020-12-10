@@ -1,0 +1,59 @@
+{% extends 'telollevo/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<!-- Sigue tu Envio grande -->
+        <div class="formOrdenGrande">
+            <form>
+                <div class="form-group" id="formGroupGrande">
+                    <label for="tituloConsulta">Sigue Tu Envío</label>
+                    <input type="text" class="form-control form-control-lg" id="inputOrden" placeholder="ID de Orden" name="idenv">
+                </div>
+                <button type="submit" class="btn btn-primary">Consultar</button>
+            </form>
+        </div>
+    
+        
+        <div class="card card-body">
+            <b><p id="tituloOrden">Id de Envío: <strong>{{query}}</strong></p></b>
+            {% if info %}
+                {% for envio in info %}
+                    <h1 id="tituloSeguimiento"><i class="{% if envio.estadoEnvio == 'd' %}fas fa-arrow-alt-circle-right{% elif envio.estadoEnvio == 't' %}fas fa-truck{% elif envio.estadoEnvio == 'e' %}fas fa-handshake{% elif envio.estadoEnvio == 'w' %}fas fa-pause-circle{% elif envio.estadoEnvio == 'n' %}fas fa-house-user{% endif %}" style="{% if envio.estadoEnvio == 'd' %}color : #4C863C{% elif envio.estadoEnvio == 't' %}color : #4C863C{% elif envio.estadoEnvio == 'e' %}color : #4C863C{% elif envio.estadoEnvio == 'w' %}color : #D9B431{% elif envio.estadoEnvio == 'n' %}color : #C51C10{% endif %}"></i>{% if envio.estadoEnvio == 'd' %} Despachado{% elif envio.estadoEnvio == 't' %} En Transito{% elif envio.estadoEnvio == 'e' %} Entregado{% elif envio.estadoEnvio == 'w' %} En Espera{% elif envio.estadoEnvio == 'n' %} No Se Encuentra En Domicilio{% endif %}</h1>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <h3>Nombre:</h3>
+                            <p>{{envio.nombreDestino}}</p>
+                        </div>
+                        <div class="col">
+                            <h3>Dirección:</h3>
+                            <p>{{envio.direccionDestino}}</p>
+                        </div>
+                        <div class="col">
+                            <h3>Telefono:</h3>
+                            <p>{{envio.telefonoDestino}}</p>
+                        </div>
+                        <div class="col">
+                            <h3>Correo:</h3>
+                            <p>{{envio.correoDestino}}</p>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <h3>Fecha de Envío:</h3>
+                            <p>{{envio.fechaEnvio}}</p>
+                        </div>
+                        <div class="col">
+                            <h3>Fecha estimada de entrega:</h3>
+                            <p>{{envio.fechaEstimadaEntrega}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h1 id="tituloSeguimiento">No se ha encontrado un envío con esa ID</h1>
+            {% endif %}
+        </div>
+{% endblock %}

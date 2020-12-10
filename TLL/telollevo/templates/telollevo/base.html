@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Lo Llevo</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    
+    {% load static %}
+    {% block css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'telollevo/css/style.css' %}">
+    <script src="{% static 'telollevo/js/home.js' %}"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="inner-width">
+            <a href="{% url 'home' %}" class="logo"></a>
+            <button class="menu-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+          
+            <div class="navbar-menu">
+                <a href="{% url 'home' %}">Inicio</a>                       
+                <a href="{% url 'siguetuenvio' %}">Sigue tu Envío</a>
+                <a href="{% url 'galeria' %}">Galeria</a>
+                <a href="{% url 'faqs' %}">FAQs</a>
+                {% if user.is_superuser %}
+                <a href="{% url 'agregarEnvio' %}">Agregar Envio</a>
+                {% endif %}
+                {% if user.is_superuser %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+                {% elif user.is_staff %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>                 
+                {% else %}               
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+                {% endif %}
+                <a style="color:white;">{{ user.username }}</a>  
+                {% for auth in backends.associated %}
+                  {% if auth.provider == 'facebook' %}
+                    <img src="{{ auth.extra_data.picture.data.url }}" alt="" width="50" height="50">
+                  {% endif %}
+                {% endfor %}
+                
+         </div>
+
+        </div>
+    </nav>
+
+    <div id="contenido">
+
+      {% block contenido %}
+      {% endblock %}
+      
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="inner-width">
+          <div class="copyright">
+              &copy; 2020 | Created & Designed By TEMPO
+          </div>
+          <img src="{% static 'telollevo/imagenes/Logo Tempo Blanco.png' %}" id="tempoImg">
+      </div>
+  </footer>
+  
+<!-- JS Codes -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+{% block js %}
+{% endblock %}
+</body>
+</html>

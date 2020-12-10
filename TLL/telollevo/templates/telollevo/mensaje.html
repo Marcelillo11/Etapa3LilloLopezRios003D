@@ -1,0 +1,21 @@
+{% extends 'telollevo/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<!-- Confirmación de Sesión -->
+        <div class="mensajeVerificacion">
+            <form action="" name="mensajeForm">
+                <div class="row">
+                    <div class="col-30">
+                        <label for="mensajeTitle" id="mensajeTitle">Inicio de sesión correcto!</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="{% url 'home' %}" id="volverInicio"><i class="fas fa-arrow-left"></i>  Volver a Inicio</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+{% endblock %}

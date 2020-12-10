@@ -1,0 +1,59 @@
+{% extends 'telollevo/base.html' %}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+<div class="card">
+	<div class="card-body">
+		<h2>Listado de envios</h2>
+		<hr>
+	</div>
+</div>
+<table class="table table-striped table-hover table-responsive">
+	<tr>
+		<th>ID</th>
+		<th>Usuario Empresa</th>
+		<th>Usuario Repartidor</th>
+		<th>Destino</th>
+		<th>Nombre Destino</th>
+		<th>Correo Destino</th>
+		<th>Telefono</th>
+		<th>Fecha de envio</th>
+		<th>Fecha estimada de entrega</th>
+		<th>Estado de envio</th>
+		<th>Opciones</th>
+	</tr>
+	{% for p in envios %}
+	<tr>
+		<td>{{p.id | title}}</td>
+		<td>{{p.usuarioE | title}}</td>
+		<td>{{p.usuarioR | title}}</td>
+		<td>{{p.direccionDestino | title}}</td>
+		<td>{{p.nombreDestino | title}}</td>
+		<td>{{p.correoDestino | title}}</td>
+		<td>{{p.telefonoDestino | title}}</td>
+		<td>{{p.fechaEnvio | title}}</td>
+		<td>{{p.fechaEstimadaEntrega | title}}</td>
+		<td>
+			{% if p.estadoEnvio == 'd' %}
+				Despachado
+			{% elif p.estadoEnvio == 't' %}
+				En Transito
+			{% elif p.estadoEnvio == 'e' %}
+				Entregado
+			{% elif p.estadoEnvio == 'w' %}
+				En Espera
+			{% elif p.estadoEnvio == 'n' %}
+				No Se Encuentra En Domicilio
+			{% endif %}
+		</td>
+		<td>
+			<a href="{% url 'modificarEnvio' p.id %}" class="btn btn-info btn-sm">Modificar</a>
+			&nbsp;
+			<a href="{% url 'eliminarEnvio' p.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'telollevo/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<!-- Bootstrap Galeria -->
+<div class="gallery-section">
+    <div class="inner-width-gallery">
+        <h1>Galeria</h1>
+        <div class="border"></div>
+        <div class="gallery">
+            <a href="{% static 'telollevo/imagenes/galeria1.jpg' %}" class="image">
+                <img src="{% static 'telollevo/imagenes/galeria1.jpg' %}" alt="">
+            </a>
+            <a href="{% static 'telollevo/imagenes/galeria2.jpg' %}" class="image">
+                <img src="{% static 'telollevo/imagenes/galeria2.jpg' %}" alt="">
+            </a>
+            <a href="{% static 'telollevo/imagenes/galeria3.jpg' %}" class="image">
+                <img src="{% static 'telollevo/imagenes/galeria3.jpg' %}" alt="">
+            </a>
+            <a href="{% static 'telollevo/imagenes/galeria4.jpg' %}" class="image">
+                <img src="{% static 'telollevo/imagenes/galeria4.jpg' %}" alt="">
+            </a>
+            <a href="{% static 'telollevo/imagenes/galeria5.jpg' %}" class="image">
+                <img src="{% static 'telollevo/imagenes/galeria5.jpg' %}" alt="">
+            </a>
+            <a href="{% static 'telollevo/imagenes/galeria6.jpg' %}" class="image">
+                <img src="{% static 'telollevo/imagenes/galeria6.jpg' %}" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Script popup galeria-->
+<script>
+    $(".gallery").magnificPopup({
+    delegate: 'a',
+    type: 'image',
+    gallery:{
+        enabled: true
+    }
+    });
+</script>
+{% endblock %}

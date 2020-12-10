@@ -1,0 +1,366 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Ubuntu",sans-serif;
+    box-sizing: border-box;
+}
+
+.inner-width{
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 40px;
+}
+
+.navbar .inner-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 230px;
+    height: 46px;
+    background-image: url(../imagenes/tllblanco.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 12px;
+}
+
+.navbar-menu a{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: .2s linear;
+}
+
+.navbar-menu a:hover{
+    color: #48dbfb;
+}
+
+.menu-toggler{
+    background: none;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    z-index: 999;
+    display: none;
+}
+
+.menu-toggler span{
+    display: block;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    position: relative;
+    transition: .3s linear;
+}
+
+#home{
+    height: 100vh;
+    min-height: 500px;
+    background: url(../imagenes/40-Black-Wood-Background-Textures-2-scaled.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#home .inner-width{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+#home .content{
+    width: 100%;
+    color: #fff;
+}
+
+#home .content h1{
+    font-size: 60px;
+    margin-bottom: 60px;
+}
+
+#home .content h1::after{
+    content: "Llevo";
+    animation: textanim 10s linear infinite;
+}
+
+@keyframes textanim{
+    25%{
+        content: "Entrego";
+    }
+    50%{
+        content: "Cuido";
+    }
+    75%{
+        content: "Encargo"
+    }
+
+}
+
+.sm a{
+    color: #fff;
+    font-size: 22px;
+    margin: 0 10px;
+    transition: .2s linear;
+}
+
+.sm a:hover{
+    color: #48dbfb;
+}
+
+#home .buttons{
+    margin-top: 60px;
+}
+
+#home .buttons a{
+    display: inline-block;
+    margin: 15px 30px;
+    color: #48dbfb;
+    font-size: 15px;
+    font-weight: 500;
+    width: 180px;
+    border: 1px solid;
+    padding: 14px 0;
+    border-radius: 6px;
+    transition: .2s linear;
+}
+
+#home .buttons a:hover,
+#home .buttons a:nth-child(2){
+    background-color: #48dbfb;
+    color: #fff;
+}
+
+@media screen and (max-width: 980px){
+    .menu-toggler{
+        display: block;
+        z-index: 999;
+    }
+
+    .navbar-menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background-color: #343A40;
+        top: 0;
+        right: -100%;
+        max-width: 400px;
+        padding: 80px 50px;
+        transition: .3s linear;
+        z-index: 998;
+    }
+
+    .navbar-menu a{
+        display: block;
+        font-size: 30px;
+        margin: 30px 0;
+    }
+
+    .navbar-menu.active{
+        right: 0;
+    }
+
+    .menu-toggler.active span:nth-child(1){
+        transform: rotate(-45deg);
+        top: 4px;
+    }
+
+    .menu-toggler.active span:nth-child(2){
+        opacity: 0;
+    }
+
+    .menu-toggler.active span:nth-child(3){
+        transform: rotate(45deg);
+        bottom: 14px;
+    }
+}
+
+.formOrden{
+    background-color: transparent;
+    background-image: url(../imagenes/blue-chevron-kids-plain-820x532.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+}
+
+#formGroup{
+    width: 300px;
+}
+
+#formGroup label{
+    font-size: 60px;
+}
+
+footer{
+    background-image: url(../imagenes/40-Black-Wood-Background-Textures-2-scaled.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.copyright{
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+#tempoImg{
+    width: 250px;
+    margin-bottom: auto;
+}
+
+.formOrdenGrande{
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+#formGroupGrande label{
+    font-size: 60px;
+}
+
+.formOrdenGrande button{
+    display: flex;
+    margin: auto;
+}
+
+#tituloOrden{
+    font-size: 20px;
+}
+
+#logoSeguimientoD{
+    color: green;
+}
+
+#logoSeguimientoT{
+    color: green;
+}
+
+#logoSeguimientoE{
+    color: green;
+}
+
+#logoSeguimientoW{
+    color: yellow;
+}
+
+#logoSeguimientoN{
+    color: red;
+}
+
+#collapseSeguimiento{
+    padding-bottom: 100px;
+}
+
+.collapseFAQ{
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+#accordionExample{
+    width: 60%;
+}
+
+.formLogin{
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.noRegistrado{
+    padding-top: 10px;
+}
+
+.tituloRegistro{
+    padding-bottom: 50px;
+}
+
+#mensajeTitle{
+    font-size: 50px;
+    text-align: center;
+}
+
+.mensajeVerificacion{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#volverInicio{
+    font-size: 25px;
+    text-align: center;
+}
+
+.rowGaleria {
+    margin: 15px;
+  }
+
+.gallery-section{
+    width: 100%;
+    padding: 60px 0;
+    background: #fff;
+}
+
+.inner-width-gallery{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.gallery-section h1{
+    text-align: center;
+    text-transform: uppercase;
+    color: #343A40;
+}
+
+.border{
+    width: 180px;
+    height: 4px;
+    background: #343A40;
+    margin: 60px auto;
+}
+
+.gallery-section .gallery{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+}
+
+.gallery-section .image{
+    flex: 25%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-section .image img{
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.gallery-section .image:hover img{
+    transform: scale(1.4) rotate(15deg);
+}
+
+@media screen and (max-width:960px){
+    .gallery-section .image{
+        flex: 100%;
+    }
+}

@@ -1,0 +1,16 @@
+{% extends 'telollevo/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<!-- Sigue tu Envio grande -->
+        <div class="formOrdenGrande">
+            <form action="/buscar/" method="GET">
+                <div class="form-group" id="formGroupGrande">
+                    <label for="tituloConsulta">Sigue Tu Envío</label>
+                    <input type="text" class="form-control form-control-lg" id="inputOrden" placeholder="ID de Orden" name="idenv">
+                </div>
+                <button type="submit" class="btn btn-primary">Consultar</button>
+            </form>
+        </div>
+{% endblock %}
